@@ -5,14 +5,13 @@ import os
 import requests
 import json
 
-myclient = pymongo.MongoClient("mongodb+srv://vinay_1998:sepI6llmqwFPJWUe@bookmarker-cofya.gcp.mongodb.net/AIT_placements_bot?retryWrites=true&w=majority")
-mydb = myclient["Screenshots_bot"]
-mycol = mydb["pictures_name"]
+myclient = pymongo.MongoClient(<MONGO ID>)
+mydb = myclient[<Database>]
+mycol = mydb[<COLLECTION>]
 x = mycol.find_one()
 
 def update_db(title):
     
-    mycol = mydb["pictures_name"]
     if mycol.find({"title":title}).count() == 0 :
         print("Picture Does'nt Exist")
         data = title
@@ -27,8 +26,8 @@ def send_screen_shot():
 
 
 def send_photo(f):
-    bot_token = '1370880217:AAHC6s3sKvWp9V9Utnwl-ouccz1tNKzGhNQ'
-    chat_id = "-499571829"
+    bot_token = '<bot_token>'
+    chat_id = "<chat id to post on>"
     file = f
 
     files = {
